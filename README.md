@@ -115,7 +115,6 @@ You can deploy this project using: **Not available**
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
-
 ## 👥 Authors <a name="authors"></a>
 
 - GitHub: [@zunairkhan811](https://github.com/zunairkhan811)
