@@ -1,6 +1,6 @@
-require '.\decorator'
+require_relative 'decorator'
 class CapitalizeDecorator < Decorator
   def correct_name
-    super.upcase
+    super.capitalize
   end
 end
