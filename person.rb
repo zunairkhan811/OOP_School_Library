@@ -3,7 +3,7 @@ class Person < Nameable
   attr_accessor :age, :name, :rentals
   attr_reader :id
 
-  def initialize( age, name = 'unknown', parent_permission: true)
+  def initialize(age, name = 'unknown', parent_permission: true)
     @id = Random.rand(1..2000)
     @name = name
     @age = age
@@ -27,8 +27,8 @@ class Person < Nameable
   def correct_name
     @name
   end
-end
 
-person = Person.new(19, 'Zunair')
-puts(person.send(:of_age?))
-puts(person.can_use_services)
+  def add_rental(rental)
+    @rentals << rental
+  end
+end
