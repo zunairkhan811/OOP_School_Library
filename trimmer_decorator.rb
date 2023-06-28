@@ -1,14 +1,7 @@
-require_relative '../capitalize_decorator'
-describe TrimmerDecorator do
-  before :each do
-    person = double('Person', rentals: [])
-    allow(person).to receive(:age) { 12 }
-    allow(person).to receive(:name) { 'shubhamabcdefght' }
-    allow(person).to receive(:parent_permission) { true }
-    allow(person).to receive(:correct_name).and_return(person.name)
-    @trimdecorator = TrimmerDecorator.new(person)
-  end
-  it 'checking for correct name method should return Trimme name' do
-    expect(@trimdecorator.correct_name).to eq('shubhamabc')
+require_relative 'decorator'
+
+class TrimmerDecorator < Decorator
+  def correct_name
+    @nameable.correct_name.strip[0...10]
   end
 end
