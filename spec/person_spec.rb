@@ -2,7 +2,22 @@ require_relative '../person'
 
 describe Person do
   before :each do
-    @person = Person.new(30, 'Shubham', 'true')
+    @person = Person.new(30, 'Shubham', true)
+    @person_without_name = Person.new(25, 'unknown', 'false')
+    @person_without_permission = Person.new(15, 'Alice', false)
+  end
+
+  it 'constructor sets a default value for the optional name parameter' do
+    expect(@person_without_name.name).to eq('unknown')
+  end
+
+  it 'can_use_services? method returns false if underage and no parent permission' do
+    expect(@person_without_permission.can_use_services?).to be false
+    expect(@person.can_use_services?).to be true
+  end
+
+  it 'can_use_services? method returns true if has parent permission' do
+    expect(@person.can_use_services?).to be true
   end
 
   it 'checking person instance' do
@@ -10,7 +25,7 @@ describe Person do
   end
 
   it 'checking attributes' do
-    expect(@person).to have_attributes(age: 30, name: 'Shubham', parent_permission: 'true')
+    expect(@person).to have_attributes(age: 30, name: 'Shubham', parent_permission: true)
   end
 
   it 'test for add_rental' do
